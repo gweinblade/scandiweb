@@ -1,0 +1,138 @@
+.topbar {
+    width: 100%;
+    height: 3rem;
+    padding: 11px 0;
+    z-index: 1001;
+    transition: all 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: visible;
+    position: absolute;
+    background: white;
+    //padding: 0 10%;
+    .cart{
+      margin: 0 10%;
+      position: relative;
+      cursor: pointer;
+      
+    &::after{    
+      content: attr(value);
+      color: #fff;
+      background: black;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      left: 11px;
+      top: -9px;
+      border-radius: 50%;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 16px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      text-transform: uppercase;
+      justify-content: center;
+  
+    }
+    }
+    .emptycart{
+      margin: 0 10%;
+      position: relative;      
+    }
+    nav {
+      display: flex;
+      flex-direction: row;
+      margin-left: 9%;
+      .link{
+          
+          font-family: 'Raleway';
+          font-style: normal;
+          font-weight: 600;
+          color: #1D1F22;
+          font-size: 16px;
+          line-height: 120%;
+          text-decoration: none;
+          text-transform: uppercase;
+          padding: 21px 25px;
+        
+      }
+      .act{
+        border-bottom: 3px solid #5ECE7B;
+        color: #5ECE7B;
+      }
+    }
+    .logo{
+      position: absolute;
+      left: 50%;
+    }
+    .image_cart{
+      padding: 0 10% 0 0;
+    }
+    .currencychanger{
+      position: absolute;
+      top: 23px;
+      right: 15%;
+      z-index: 4;
+      a{
+        padding: 10px;
+        text-decoration: none;
+        cursor: pointer;
+        color: black;
+      }
+      div{  
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        a:hover{
+          background-color: #EEEEEE;
+        }
+        
+      
+      }
+        .active::after {
+          content: "›";
+          position: relative;
+          color: black;
+          font-size: 16px;
+          font-weight: bold;
+          transform: rotate(90deg);
+          transition: all ease 0.4s;
+          top: 2px;
+          right: -0.5rem;
+          display: inline-block;
+        
+        }
+        .notactive::after {
+          content: "›";
+          position: relative;
+          color: black;
+          font-size: 16px;
+          font-weight: bold;
+          transition: all ease 0.4s;
+          transform: rotate(-90deg);
+          top: 2px;
+          right: -0.5rem;
+          display: inline-block;
+        
+        }
+      ul{
+        padding-inline-start: 0px;
+        z-index: 5;
+        transition: all ease 2s;
+        li{
+          margin: 10% 0;
+        }
+
+      }
+      
+      
+    }
+  
+    
+  }
+ 
+  

@@ -1,0 +1,136 @@
+.products {
+  display: flex;
+  flex-direction: column;
+ 
+  
+  
+
+  h2 {
+    font-family: "Raleway";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 160%;
+    margin: 0 0 0 10%;
+   
+  }
+  ul {
+    margin: 10px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+   
+    
+    justify-items: center;
+    
+    grid-gap: 0 40px;
+    .product{
+      position: relative;
+
+      .card{
+        width: 386px;
+      height: 444px;
+      text-decoration: none;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-content: center;
+      align-items: flex-start;
+      position: relative;
+      justify-content: center;
+      
+    
+  
+     
+    .title{
+      margin-bottom: 0;
+      font-family: 'Raleway';
+      font-style: normal;
+      font-weight: 300;
+      font-size: 18px;
+      color: #1D1F22;
+      line-height: 160%;
+    }
+    .price{
+      margin: -10px 0;
+      font-family: 'Raleway';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      color: #1D1F22;
+      line-height: 160%;
+      
+    } 
+      }
+      .outofstockproducts{
+        opacity: 0.5;
+        &::after{
+          content: "out of stock";
+          position: absolute;
+          right: 122px;
+          color: black;
+          top: 173px;
+          font-family: 'Raleway';
+          opacity: 1;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 24px;
+          text-transform: uppercase;
+          line-height: 160%;
+        }
+      }
+      .goplp{
+        position: absolute;
+        cursor: pointer;
+        right: 72px;
+        top: 276px;
+        
+        img{
+          visibility: hidden;
+          width: 52px;
+          height: 52px;
+        }
+        
+    }
+      &:hover{
+        .goplp{
+          img{
+            visibility: visible;
+          }
+        }
+      }
+    }
+  
+    img{
+      width: 16rem;
+      height: 16rem;
+      object-fit: cover;
+    }
+}   
+
+    }
+    
+  
+ 
+
+    @media screen and (max-width: 1200px){
+      .products{
+        .row{
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      
+      }
+      @media screen and (max-width: 790px){
+        .products{
+          .row{
+            grid-template-columns: auto;
+          }
+        }
+        
+        }

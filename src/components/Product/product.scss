@@ -1,0 +1,136 @@
+
+
+@mixin hideInput {width: 0; height: 0; position: absolute; left: -9999px;}
+.product{
+    display: flex;
+    flex-direction: row;
+    padding: 1%;
+    justify-content: space-evenly;
+    .outofstock{
+        opacity: 0.5;
+        position: relative;
+        &::after{
+            content: "out of stock";
+            position: absolute;
+            /* right: 417px; */
+            left: 92px;
+            color: black;
+            top: 201px;
+            font-family: "Raleway";
+            opacity: 1;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            text-transform: uppercase;
+            line-height: 160%;
+        }
+      }
+    .gallery{
+        display: flex;
+        flex-direction: column;
+        height: 30rem;
+        justify-content: space-between;
+        .sideimage{
+        height: 5rem;
+        width: 5rem;
+        
+        object-fit: cover;
+        cursor: pointer;
+        padding: 5%;
+        }
+    }
+    .mainpic{
+        max-height: 25rem;
+        object-fit: cover;
+        max-width: 30rem;
+        
+    }
+    .details{
+        display: flex;
+        flex-direction: column;
+        .brand{
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 30px;
+            line-height: 27px;
+            color: #1D1F22;
+            margin: 0;
+        }
+        .name{
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 30px;
+            line-height: 27px;
+            margin-top: 16px;
+            color: #1D1F22;
+        }
+        .submitbtn{
+            width: 292px;
+            height: 52px;
+            align-items: center;
+            cursor: pointer;
+            border: none;
+            background: #5ECE7B;
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            line-height: 120%;
+            
+        }
+        .outofstockbtn{
+            background: grey;
+            
+        }
+        .description{
+            max-width: 292px;
+
+        }
+    
+    }
+    .attributes{
+        display: flex;
+        flex-direction: column;
+        .attribute{
+            display: flex;
+            flex-direction: row;
+            .group{
+                margin: 0 0 0 0.6rem;
+                input {@include hideInput;} 
+                input:checked + label {
+                background-color: black;
+                color: #FFF;       
+                border: 1px solid #66B3FB;
+                z-index: 1;
+                box-shadow:  0 0 10px rgba(#66B3FB, .5);
+                }
+                .text{         
+                    height: 2.813rem;
+                    width: 3.9rem;
+                    margin: 0 2%;
+                    cursor: pointer;
+                    border: 1px solid black;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .swatch{
+                    cursor: pointer;
+                    height: 2rem;
+                    width: 2rem;
+                    margin: 0 2%;
+                    border: 1px solid black;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+            
+           
+        }
+    }
+}

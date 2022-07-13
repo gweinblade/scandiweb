@@ -1,0 +1,239 @@
+
+.minicart{
+    top: 69px;
+    right: 137px;
+    position: absolute;
+    z-index: 1001;
+    background: white;
+    width: 325px;
+    padding: 32px 16px;
+    .productsminicart{
+        margin: 0 0 8px 0;
+        .productminicart {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            flex: 1;
+            margin:  0 0 10px 0;
+            .leftmini{
+                flex: 0.5;
+                .brandcart{
+                    font-family: 'Raleway' ;
+                    font-style: normal ;
+                    font-weight: 300 ;
+                    font-size: 16px;
+                    line-height: 160% ;
+                    margin: 0 ;
+                    color: #1D1F22;
+                }
+                .namecart{
+                    font-family: 'Raleway' ;
+                    font-style: normal ;
+                    font-weight: 300 ;
+                    font-size: 16px;
+                    line-height: 160% ;
+                    margin: 0 ;   
+                    color: #1D1F22;
+                    
+                }
+                .amountitem{
+                    font-family: 'Raleway' ;
+                    font-style: normal ;
+                    font-weight: bold ;
+                    font-size: 16px;
+                    line-height: 160% ;
+                    margin: 0 ;       
+                    color: #1D1F22;               
+                }
+            .attributesminicart{
+                .attributesname{
+                    font-family: 'Raleway';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: #1D1F22;     
+                    margin: 5px 0 10px 0;               
+                }
+                .attributecart{
+                    display: flex;
+                    flex-direction: row;
+                    padding: 0 10px;
+                    width: fit-content;
+                    
+                    .attributes_text{
+                        width: 24px;
+                        text-align: center;
+                        height: 24px;                       
+                        background: #FFFFFF;
+                        border: 1px solid #1D1F22;
+                        box-sizing: border-box;
+                        font-family: "Source Sans Pro";                      
+                        margin: 0 6px 0 0;                    
+                        font-size: 10px;
+                        line-height: 23px;
+                    }
+                    }
+                    .attributes_color{                   
+                        height: 16px;
+                        width: 16px;
+                        margin: 0 2%;
+                        //border: 1px solid black;
+                        //padding: 2px;
+                        
+                    }
+                    
+                    .checked{
+                        background-color: black !important;
+                        color: #FFF;       
+                        z-index: 1;
+                        
+                    }
+                    .checkedcolor{
+                        box-sizing: border-box;
+                        border: 1px solid #5ECE7B;
+
+                    }
+                }
+            }
+                  
+        }
+    
+        .rightmini{
+            display: flex;
+            width: 23%;
+            flex: 0.5;
+            justify-content: space-around;
+            align-items: center;
+            height: max-content;
+            .carousel{
+                position: relative;
+                .imagesitem{
+                    height: 190px;
+                    width: 121px;
+                    position: relative;
+                    object-fit: contain;
+                }
+                .previous{
+                    position: absolute;
+                    background: rgba(0, 0, 0, 0.73);
+                    color: white;
+                    border: none;
+                    height: 24px;
+                    width: 24px;
+                    opacity: 0.6;
+                    top: 156px;
+                    right: 46px;
+                    cursor: pointer;
+                }
+                .next{
+                    position: absolute;
+                    background: rgba(0, 0, 0, 0.73);
+                    color: white;
+                    border: none;
+                    height: 24px;
+                    width: 24px;
+                    top: 156px;
+                    right: 19px;
+                    cursor: pointer;
+                    opacity: 0.6;
+                }
+            }
+           
+            .numbers{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 190px;
+                justify-content: space-between;
+                button , p{
+                    margin: 0;
+                }
+                .increase{
+                    cursor: pointer;
+                    margin: 0;
+                    border: 1px solid #1D1F22;
+                    width: 30px;
+                    height: 30px;
+                    align-items: center;
+                    line-height: 30px;
+                    text-align: center;
+                }
+                .decrease{
+                    cursor: pointer;
+                    border: 1px solid #1D1F22;
+                    width: 30px;
+                    
+                    height: 30px;
+                    align-items: center;
+                    line-height: 30px;
+                    text-align: center;
+                }
+            }
+            
+        }
+        
+        }
+        
+    }
+    .infomini{
+        display: flex;
+        flex-direction: row;
+        margin: 0 0 8px 0;
+        justify-content: space-between;
+        h3{
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 28px;
+             margin: 0 0 8px 0;
+            color: #1D1F22;
+    
+        }
+        h2{
+            margin: 0 0 8px 0;
+        }
+        .order{
+            cursor: pointer;
+            padding: 16px 32px;     
+            width: 140px;
+            height: 43px;
+            background: #5ECE7B;
+            line-height: 10px;
+            font-family: 'Raleway';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 12px;
+    
+        }
+        .view{
+            align-items: center;
+            display: flex;
+            width: 140px;
+            height: 43px;
+            background: white;
+            border: 1px solid #1D1F22;
+            font-family: "Raleway";
+            font-style: normal;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            color: black;
+            justify-content: center;
+            align-content: flex-end;
+          
+        }
+    
+    }
+    
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(57, 55, 72, 0.22);
+    z-Index: 1000;
+}
