@@ -28,20 +28,22 @@
     .gallery{
         display: flex;
         flex-direction: column;
-        height: 30rem;
-        justify-content: space-between;
+        
+        gap: 30px;
+        justify-content: flex-start;
         .sideimage{
         height: 5rem;
         width: 5rem;
         
-        object-fit: cover;
+        
+       
         cursor: pointer;
         padding: 5%;
         }
     }
     .mainpic{
         max-height: 25rem;
-        object-fit: cover;
+       
         max-width: 30rem;
         
     }
@@ -88,13 +90,21 @@
         }
         .description{
             max-width: 292px;
-
+            max-height: 350px;
+            overflow-y: scroll;
         }
     
     }
     .attributes{
         display: flex;
         flex-direction: column;
+        .productattributeid{
+            font-family: 'Roboto Condensed';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 18px;
+        }
         .attribute{
             display: flex;
             flex-direction: row;
@@ -133,4 +143,12 @@
            
         }
     }
+    .productprice{
+        font-family: 'Raleway';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 18px;
+    }
+   
 }

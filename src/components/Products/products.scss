@@ -12,6 +12,7 @@
     font-size: 42px;
     line-height: 160%;
     margin: 0 0 0 10%;
+    text-transform: capitalize;
    
   }
   ul {
@@ -57,13 +58,16 @@
       line-height: 160%;
     }
     .price{
-      margin: -10px 0;
+      p{
+        margin: -10px 0;
       font-family: 'Raleway';
       font-style: normal;
       font-weight: 500;
       font-size: 18px;
       color: #1D1F22;
       line-height: 160%;
+      
+      }
       
     } 
       }
@@ -87,17 +91,23 @@
       .goplp{
         position: absolute;
         cursor: pointer;
-        right: 72px;
-        top: 276px;
+        right: 51px;
+        top: 315px;
+        height: 52px;
+        width: 52px;
+    
         
         img{
           visibility: hidden;
-          width: 52px;
-          height: 52px;
-        }
+          width: 60px;
+          object-fit: none;
+          height: 60px;
+          }
         
     }
       &:hover{
+        box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
+
         .goplp{
           img{
             visibility: visible;
@@ -107,9 +117,10 @@
     }
   
     img{
-      width: 16rem;
-      height: 16rem;
+      width: 354px;
+      height: 330px;
       object-fit: cover;
+     
     }
 }   
 

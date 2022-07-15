@@ -4,9 +4,10 @@ import {  useParams } from "react-router-dom";
 import { useDispatch,useSelector} from 'react-redux';
 import './product.scss'
 import {Query} from "@apollo/client/react/components"
+import {productquery} from '../../queries'
+import { Interweave } from 'interweave';
 
-
- class Product extends Component {
+class Product extends Component {
   state = {
     currentImage: null ,
     color :null,
@@ -30,7 +31,6 @@ import {Query} from "@apollo/client/react/components"
           type : "cart/addToCart",
           payload: item
           })
-          console.log("submited",this.state.array)
   }
   recheck = e => {
         let att = {name : e.target.name, value : e.target.value }
@@ -47,53 +47,19 @@ import {Query} from "@apollo/client/react/components"
           array : [...this.state.array,att]
          })
         }
-        console.log("att in string : ",att)
+
         
   }
   render() {
-    console.log("array in string : ",this.state.array)
       const curent = this.props.redux
       const dispatch =this.props.dispatch
       const {id} =this.props.params
      
-      //console.log(data)
     
      
     return (
       
-      <Query query={gql`query type($productId: String!) {
-        product(id: $productId) {
-          brand
-          category
-          description
-          gallery
-          id
-          attributes {
-            id
-            name
-            type
-            items {
-              displayValue
-              id
-              value
-            }
-          }
-          inStock
-          prices {
-            amount
-            currency {
-              label
-              symbol
-              __typename
-            }
-            __typename
-          }
-          __typename
-          name
-        }
-      }
-      
-         `}  variables={ {
+      <Query query={gql`${productquery}`}  variables={ {
           "productId": id
       }}>
       {({loading,data}) => {
@@ -116,22 +82,23 @@ import {Query} from "@apollo/client/react/components"
             <h2 className='name' >{name}</h2>
             <form >
             {attributes.map(({id,type,items})=> <div className='attributes'>
-            <h2>{id} :</h2>
+            <h2 className='productattributeid'>{id} :</h2>
             <div className='attribute'>
             {items.map(({value})=> 
             {return type==="text" ? <div className='group'> <input className='group' type="radio" id={value+id}   value={value} name={id} onChange={this.recheck} required/><label htmlFor={value+id} className={type} >{value}</label> </div>:  
-            <div className='group'> <input type="radio" id={value+id}  className='group'  value={value} name={id} onChange={this.recheck} required/><label htmlFor={value+id} className={type} style={{backgroundColor : value, color : value}} ></label>  </div>
+            <div className='group'> <input type="radio" id={value+id}  className='group'  value={value} name={id} onChange={this.recheck} required/><label htmlFor={value+id} className={type} style={{backgroundColor : value}} ></label>  </div>
             }
 
             )}</div>
             </div>
             )}
             
-            {prices.filter(({amount,currency}) => currency.symbol === curent  ).map(({amount,currency}) => <div><h3>PRICE :</h3><h2>{currency.symbol}{amount}</h2></div>)}
+            {prices.filter(({amount,currency}) => currency.symbol === curent  ).map(({amount,currency}) => <div><h3 >PRICE :</h3><h2 className='productprice'>{currency.symbol}{amount}</h2></div>)}
             <input type="button" value="Add to cart" className={`submitbtn ${inStock ? "" : "outofstockbtn"}` }onClick={() => inStock && this.btnSubmit(product,dispatch)} />
             </form>
-            <p className='description' dangerouslySetInnerHTML={{ __html: description}} />
-
+            
+              
+              <Interweave  content={description} className='description'/>
             </div> 
             </div>)
        )

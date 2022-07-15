@@ -7,7 +7,7 @@ import {Query} from "@apollo/client/react/components"
 import cart from '../../assets/cart.svg'
 import logo from '../../assets/logo.svg'
 import MiniCart from '../minicart/MiniCart';
-
+import {currencyquery,categoryquery} from '../../queries'
 
 
 
@@ -17,22 +17,19 @@ class TopBar extends Component {
   state = {
     currencyref : false ,
     cartref:false,
+    wrappercartref : React.createRef(),
     wrapperRef : React.createRef(),
     
   }
   
   
   componentDidMount = () =>{
-    document.addEventListener("mousedown", this.handleClickOutsidecurrency);
-    
-
-    
+    document.addEventListener("mousedown", this.handleClickOutsidecurrency);   
   }
 
   componentWillUnmount = () => {
     document.removeEventListener("mousedown", this.handleClickOutsidecurrency);
-  
-  }
+}
 
   setclickcurrency =(x) => {
     this.setState({ currencyref : x})
@@ -41,9 +38,6 @@ class TopBar extends Component {
     this.setState({ cartref : x})
   }
 
-  /**
-   * Alert if clicked on outside of element
-   */
   handleClickOutsidecurrency = (event) =>{
     if (this.state.wrapperRef && !this.state.wrapperRef.current.contains(event.target) && this.state.currencyref) {
       this.setState( { currencyref : false})
@@ -57,12 +51,12 @@ class TopBar extends Component {
     const current_symbol = this.props.redux_symbol
     const current_category = this.props.redux_currenct
     const cart_total= this.props.redux_total_cart
-    console.log(this.state.cartref)
+
     return (
       <div className='topbar'>
         <nav>
 
-        <Query query={gql`query type {categories{name}}`}>
+        <Query query={gql`${categoryquery}`}>
         {({loading,data,error}) => {
         if (loading) return 'loading';
         if (error)   return 'error';
@@ -73,12 +67,10 @@ class TopBar extends Component {
                   payload: name})}>{name} </NavLink> 
               ));}}
         </Query>
-        
         </nav>
-       
         <img className='logo' alt='' src={logo}/>
         <div ref={this.state.wrapperRef} >
-        <Query query={gql`query type {currencies{label symbol}}`}>
+        <Query query={gql`${currencyquery}`}>
         {({loading,data,error}) => {
         if (loading) return 'loading';
         if (error)   return 'error';
@@ -97,7 +89,7 @@ class TopBar extends Component {
         </div>
         
 
-        <div className={cart_total > 0 ? "cart" : "emptycart"} value={cart_total} onClick={() => this.setclickcart(!this.state.cartref)}  >
+        <div className={cart_total > 0 ? "cart" : "emptycart"} ref={this.state.wrappercartref} value={cart_total} onClick={() => this.setclickcart(!this.state.cartref)}  >
         <img alt='' className='image_cart' src={cart}/>
 
 
@@ -108,7 +100,7 @@ class TopBar extends Component {
          
         
 
-          {this.state.cartref ?<MiniCart setclick={(x)=>this.setclickcart(x)} />  :""}
+          {this.state.cartref ?<MiniCart cartref={this.state.cartref} cartbuttonref={this.state.wrappercartref} setclick={this.setclickcart} />  :""}
          
 
            

@@ -5,10 +5,13 @@
     position: absolute;
     z-index: 1001;
     background: white;
-    width: 325px;
+    height: 677px;
+    width: 350px;
     padding: 32px 16px;
     .productsminicart{
         margin: 0 0 8px 0;
+        overflow-y: auto;
+        height: 530px;
         .productminicart {
             display: flex;
             flex-direction: row;
@@ -40,7 +43,7 @@
                 .amountitem{
                     font-family: 'Raleway' ;
                     font-style: normal ;
-                    font-weight: bold ;
+                    font-weight: 500 ;
                     font-size: 16px;
                     line-height: 160% ;
                     margin: 0 ;       
@@ -59,28 +62,33 @@
                 .attributecart{
                     display: flex;
                     flex-direction: row;
-                    padding: 0 10px;
-                    width: fit-content;
+
+
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 8px;
                     
                     .attributes_text{
                         width: 24px;
-                        text-align: center;
                         height: 24px;                       
                         background: #FFFFFF;
                         border: 1px solid #1D1F22;
-                        box-sizing: border-box;
-                        font-family: "Source Sans Pro";                      
-                        margin: 0 6px 0 0;                    
-                        font-size: 10px;
-                        line-height: 23px;
+                        justify-content: center;
+                        align-items: center;
+                        display: flex;
+                        padding: 3.5px;         
+                        p{
+                            font-size: 10px;
+                            font-family: "Source Sans Pro";
+                            padding: 0;
+                            margin: 0;    
+                        }
                     }
                     }
                     .attributes_color{                   
                         height: 16px;
                         width: 16px;
-                        margin: 0 2%;
-                        //border: 1px solid black;
-                        //padding: 2px;
+                       padding: 2px;
                         
                     }
                     
@@ -90,8 +98,7 @@
                         z-index: 1;
                         
                     }
-                    .checkedcolor{
-                        box-sizing: border-box;
+                    .checkedcolor{           
                         border: 1px solid #5ECE7B;
 
                     }
@@ -113,31 +120,27 @@
                     height: 190px;
                     width: 121px;
                     position: relative;
-                    object-fit: contain;
+
                 }
                 .previous{
                     position: absolute;
-                    background: rgba(0, 0, 0, 0.73);
-                    color: white;
-                    border: none;
+                    
                     height: 24px;
                     width: 24px;
-                    opacity: 0.6;
+                    
                     top: 156px;
                     right: 46px;
                     cursor: pointer;
                 }
                 .next{
                     position: absolute;
-                    background: rgba(0, 0, 0, 0.73);
-                    color: white;
-                    border: none;
+                   
                     height: 24px;
                     width: 24px;
                     top: 156px;
                     right: 19px;
                     cursor: pointer;
-                    opacity: 0.6;
+                   
                 }
             }
            
@@ -205,6 +208,8 @@
             font-family: 'Raleway';
             font-style: normal;
             font-weight: 600;
+            color: #FFFFFF;
+            border: none;
             font-size: 12px;
     
         }

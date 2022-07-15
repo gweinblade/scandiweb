@@ -8,7 +8,24 @@ import { NavLink } from 'react-router-dom';
 
 class MiniCart extends Component {
 
-   
+  state = {
+    wrapperRef : React.createRef()
+    
+  }
+
+  componentDidMount = () =>{
+    document.addEventListener("mousedown", this.handleClickOutsidecart);   
+  }
+
+  componentWillUnmount = () => {
+    document.removeEventListener("mousedown", this.handleClickOutsidecart);
+}
+  handleClickOutsidecart = (event) =>{
+    if (this.state.wrapperRef && this.props.cartref  && !this.state.wrapperRef.current.contains(event.target) && !this.props.cartbuttonref.current.contains(event.target) ) {
+      this.props.setclick(false)
+      
+    }
+  }
  increase = (product , dispatch) => {
   
   dispatch({ type : "cart/addToCart",
@@ -36,7 +53,7 @@ totalamount =(cart,symbol) => {
   let total = cart.reduce((accumulator,product)=> 
   accumulator + parseFloat(( product[0].prices.filter(({amount,currency}) => currency.symbol === symbol  ).map(({amount,currency}) => amount *  product["cartQuantity"] )  )),0
   )
-//console.log("totale = ",total)
+
 return parseFloat(total).toFixed(2);
 }
 
@@ -49,8 +66,8 @@ return parseFloat(total).toFixed(2);
 
     return PortalReactDOM.createPortal (
       <>
-      <div className='overlay'/>
-      <div className='minicart'>
+       {this.props.cartref ? <div className='overlay'/> : <div></div>}
+      {this.props.cartref ?  <div className='minicart' ref={this.state.wrapperRef}>
         <p><b>My Bag </b> {totalcart} items</p>
         <div className='productsminicart'>
 
@@ -72,8 +89,8 @@ return parseFloat(total).toFixed(2);
             {items.map(({value})=>
                       
             {
-              return type==="text" ? <p className={`attributes_text ${this.checked(id,value,product["NewAtt"]) ? "checked" : ""}`}>{value}</p>   :  
-             <p className={`attributes_color ${this.checked(id,value,product["NewAtt"]) ? "checkedcolor" : ""}`} style={{backgroundColor : value, color : value}} ></p>  
+              return type==="text" ? <div className={`attributes_text ${this.checked(id,value,product["NewAtt"]) ? "checked" : ""}`}><p>{value}</p></div>   :  
+             <div className={`attributes_color ${this.checked(id,value,product["NewAtt"]) ? "checkedcolor" : ""}`} style={{backgroundColor : value}} ></div>  
             }
             )}</div>
             </div>
@@ -116,7 +133,8 @@ return parseFloat(total).toFixed(2);
           </div>
         
         
-      </div>
+      </div>: <div></div>}
+     
       </>
      ,portal
     )

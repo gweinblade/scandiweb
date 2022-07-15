@@ -13,7 +13,7 @@ let persistor = persistStore(store);
 
 export const Client = new ApolloClient({
   uri: 'http://localhost:4000/',
-  cache: new InMemoryCache()
+  cache: new InMemoryCache({addTypename: false})
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

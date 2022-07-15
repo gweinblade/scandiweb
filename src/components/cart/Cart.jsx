@@ -34,7 +34,6 @@ totalamount =(cart,symbol) => {
   let total = cart.reduce((accumulator,product)=> 
   accumulator + parseFloat(( product[0].prices.filter(({amount,currency}) => currency.symbol === symbol  ).map(({amount,currency}) => amount *  product["cartQuantity"] )  )),0
   )
-console.log("totale = ",total)
 return parseFloat(total).toFixed(2);
 }
 
@@ -44,7 +43,7 @@ return parseFloat(total).toFixed(2);
     const totalcart =this.props.redux_total;
     const dispatch = this.props.dispatch;
     return (
-      <div style={{padding: "70px"}}>
+      <div className='cartpage'>
         <h1>Cart</h1>
         <div className='productscart'>
 
@@ -67,7 +66,7 @@ return parseFloat(total).toFixed(2);
                       
             {
               return type==="text" ? <p className={`attributes_text ${this.checked(id,value,product["NewAtt"]) ? "checked" : ""}`}>{value}</p>   :  
-             <p className={`attributes_color ${this.checked(id,value,product["NewAtt"]) ? "checked" : ""}`} style={{backgroundColor : value, color : value}} ></p>  
+             <p className={`attributes_color ${this.checked(id,value,product["NewAtt"]) ? "checked" : ""}`} style={{backgroundColor : value}} ></p>  
             }
             )}</div>
             </div>

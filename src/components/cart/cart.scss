@@ -1,6 +1,6 @@
-
-
-.productscart{
+.cartpage{
+    padding: 70px;
+    .productscart{
     margin: 0 0 8px 0;
     .productcart {
         display: flex;
@@ -49,8 +49,10 @@
             }
             .attributecart{
                 display: flex;
-                flex-direction: row;
-                justify-content: space-around;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 8px;
                 
                 .attributes_text{
                     width: 63px;
@@ -69,8 +71,9 @@
                 .attributes_color{                   
                     height: 2rem;
                     width: 2rem;
-                    margin: 0 2%;
+                    
                     border: 1px solid black;
+                    
                     
                 }
                 
@@ -98,31 +101,23 @@
                 height: 280px;
                 width: 200px;
                 position: relative;
-                object-fit: contain;
+                
             }
             .previous{
-                position: absolute;
-                background: rgba(0, 0, 0, 0.73);
-                color: white;
-                border: none;
+                position: absolute;                 
                 height: 24px;
                 width: 24px;
-                opacity: 0.6;
                 top: 225px;
                 right: 46px;
                 cursor: pointer;
             }
             .next{
-                position: absolute;
-                background: rgba(0, 0, 0, 0.73);
-                color: white;
-                border: none;
+                position: absolute;              
                 height: 24px;
                 width: 24px;
                 top: 225px;
                 right: 19px;
-                opacity: 0.6;
-                cursor: pointer;
+               cursor: pointer;
             }
         }
        
@@ -157,7 +152,7 @@
     
     }
     
-}
+} 
 .info{
     display: flex;
     flex-direction: row;
@@ -174,6 +169,11 @@
     }
     h2{
         margin: 0 0 8px 0;
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 28px;
     }
 }
 .order{
@@ -184,4 +184,5 @@
     border: none;
     color: white;
     line-height: 10px;
+}
 }

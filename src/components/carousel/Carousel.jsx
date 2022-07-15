@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-
+import next from '../../assets/next.svg'
+import previous from '../../assets/previous.svg'
 export default class Carousel extends Component {
 
     state ={
@@ -30,10 +31,11 @@ export default class Carousel extends Component {
                <img src={gallery[ this.state.number]} alt="" className='imagesitem' />
    
           
-            
                
-            <button onClick={()=> this.previous(gallery)} className="previous"  >{"<"}</button>
-            <button onClick={()=> this.next(gallery)} className="next" > {">"}</button>
+               <img src={previous} alt="" className="previous" onClick={()=> this.previous(gallery)} />
+               <img src={next} alt="" className="next" onClick={()=> this.next(gallery)} />
+            
+            
     
           </div>
         )
