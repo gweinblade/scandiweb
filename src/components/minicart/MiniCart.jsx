@@ -120,7 +120,7 @@ return parseFloat(total).toFixed(2);
         </div>
         
           <div className="infomini">
-          <h3>Total:</h3> <h2> {symbol}{this.totalamount(cart,symbol)} </h2>
+          <h3>Total:</h3> <h2 > {symbol}{this.totalamount(cart,symbol)} </h2>
           </div>
         
         
