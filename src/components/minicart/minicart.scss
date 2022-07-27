@@ -5,13 +5,13 @@
     position: absolute;
     z-index: 1001;
     background: white;
-    height: 677px;
+    max-width: 677px;
     width: 350px;
     padding: 32px 16px;
     .productsminicart{
         margin: 0 0 8px 0;
         overflow-y: auto;
-        height: 530px;
+        max-height: 530px;
         .productminicart {
             display: flex;
             flex-direction: row;

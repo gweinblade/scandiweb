@@ -57,7 +57,7 @@ return parseFloat(total).toFixed(2);
             <div className="left">
             <h2 className='brandcart'>{product[0].brand}</h2>
             <h2 className='namecart' >{product[0].name}</h2>
-            { product[0].prices.filter(({amount,currency}) => currency.symbol === symbol  ).map(({amount,currency}) => <h2 className='amountitem' >{currency.symbol}{amount} </h2>) } 
+            { product[0].prices.filter(({amount,currency}) => currency.symbol === symbol  ).map(({amount,currency}) => <h2 className='amountitem' >{currency.symbol}{parseFloat(amount).toFixed(2)} </h2>) } 
 
             {product[0].attributes.map(({id,type,items})=> <div className='attributescart'>
             <h2 className='attributesname'>{id}:</h2>

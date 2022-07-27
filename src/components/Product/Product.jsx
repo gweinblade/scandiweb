@@ -93,7 +93,7 @@ class Product extends Component {
             </div>
             )}
             
-            {prices.filter(({amount,currency}) => currency.symbol === curent  ).map(({amount,currency}) => <div><h3 >PRICE :</h3><h2 className='productprice'>{currency.symbol}{amount}</h2></div>)}
+            {prices.filter(({amount,currency}) => currency.symbol === curent  ).map(({amount,currency}) => <div><h3 >PRICE :</h3><h2 className='productprice'>{currency.symbol}{parseFloat(amount).toFixed(2)}</h2></div>)}
             <input type="button" value="Add to cart" className={`submitbtn ${inStock ? "" : "outofstockbtn"}` }onClick={() => inStock && this.btnSubmit(product,dispatch)} />
             </form>
             

@@ -63,7 +63,7 @@ import {productsquery} from '../../queries'
                     <img src={product.gallery[0]} className="img" alt={product.name} />
                     <h5 className="title">{product.brand} {product.name}</h5>
                     <h4 className='price'>{product.prices.filter(({amount,currency}) => currency.symbol === curent  ).map(({amount,currency}) => 
-                    <p> {currency.symbol}  {amount}</p>)}</h4>         
+                    <p> {currency.symbol}  {parseFloat(amount).toFixed(2)}</p>)}</h4>         
                   </NavLink>
                    <div  className="goplp" onClick={()=> this.check(product,dispatch)}><img src={addcart} alt="" /></div> 
                   
